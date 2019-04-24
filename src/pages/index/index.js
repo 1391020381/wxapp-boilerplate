@@ -1,5 +1,3 @@
-import { flow } from 'lodash';
-
 const delay = (t = 0) => new Promise((resolve) => setTimeout(resolve, t));
 
 // 获取应用实例
@@ -16,14 +14,14 @@ Page({
 			url: '../logs/logs',
 		});
 	},
-	async onLoad() {
-		await delay();
+	onLoad() {
+		delay();
 
-		const log = flow(() => {
+		const log = function () {
 			console.log('is wechat mini program: ', __WECHAT__);
 			console.log('is alipay mini program: ', __ALIPAY__);
 			console.log('DEV: ', __DEV__);
-		});
+		};
 
 		log();
 
